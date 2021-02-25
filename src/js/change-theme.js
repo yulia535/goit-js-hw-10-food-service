@@ -34,10 +34,11 @@ const Theme = {
 const currentTheme = localStorage.getItem('Theme');
 if (currentTheme) {
   body.classList.add(currentTheme);
+  if (body.classList.contains(Theme.DARK) === true) {
+    themeRef.checked = true;
+  }
 }
-if (currentTheme === Theme.dark) {
-  checkBox.checked = true;
-}
+
 themeRef.addEventListener(`change`, e => {
   if (e.target.checked) {
     body.classList.remove(`light-theme`);
